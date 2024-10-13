@@ -13,7 +13,7 @@ const MessageForm = () => {
         <div>
             <Box sx={{ flex: 1 }}>
                 <div className='flex justify-between items-center font-1'>
-                    <Typography style={{ color: errors.message ? 'red' : 'inherit' }}>
+                    <Typography style={{fontWeight: 'bold'}}>
                         Message *
                     </Typography>
                 </div>
@@ -26,11 +26,25 @@ const MessageForm = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
+                    sx={{
+                        '& .MuiOutlinedInput-root': {
+                          '& fieldset': {
+                            borderColor: errors.message ? 'red' : 'grey'
+                          },
+                          '&:hover fieldset': {
+                            borderColor: '#81c784', // Darker color on hover
+                          },
+                          '&.Mui-focused fieldset': {
+                            borderColor: '#81c784',// change focused color
+                          },
+                        },
+                      }}
                     InputProps={{
                         'aria-label': 'message',
-                        sx: { height: '5rem', border: errors.message ? '.1px solid red' : 'inherit' }, // Adjust the height directly (optional)
+                        sx: { height: '5rem',}, // Adjust the height directly (optional)
                     }}
                 />
+                {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
             </Box>
         </div>
     );

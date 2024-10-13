@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'myFont';
+  src: url('../assets/Karla-Italic-VariableFont_wght.ttf') format('woff2'),
+       url('../assets/Karla-VariableFont_wght.ttf') format('woff');
+}
+
 :root {
   --background: #ffffff;
   --foreground: #e2f1e7;

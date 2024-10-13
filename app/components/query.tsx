@@ -7,9 +7,9 @@ const Query = () => {
 
     return (
         <div className="mb-2">
-            <Typography>Query Type *</Typography>
+            <Typography style={{fontWeight: 'bold'}}>Query Type *</Typography>
             <div className='flex flex-col gap-4 sm:flex-row'>
-                <Box sx={{ flex: 1, border: '.1px solid grey', borderRadius: '4px', paddingLeft: '.5rem' }}>
+                <Box sx={{ flex: 1, border: '.1px solid grey', borderRadius: '4px', paddingLeft: '.5rem',  background: checked.general? '#e2f1e7' : 'transparent'}}>
                     <FormGroup>
                         <FormControlLabel
                             control={
@@ -23,7 +23,7 @@ const Query = () => {
                         />
                     </FormGroup>
                 </Box>
-                <Box sx={{ flex: 1, border: '.1px solid grey', borderRadius: '4px', paddingLeft: '.5rem' }}>
+                <Box sx={{ flex: 1, border: '.1px solid grey', borderRadius: '4px', paddingLeft: '.5rem', background: checked.Support? '#e2f1e7' : 'transparent' }}>
                     <FormGroup>
                         <FormControlLabel
                             control={

@@ -13,6 +13,7 @@ const Consent = () => {
                         control={
                             <Checkbox
                                 checked={contact}
+                                sx={{ '&.Mui-checked': { color: 'green' } }}
                                 onChange={() => setContact(prev => !prev)}
                             />
                         }
@@ -27,6 +28,7 @@ const Consent = () => {
                 sx={{
                     backgroundColor: 'darkgreen',
                     textTransform: 'capitalize',
+                    fontWeight: 'bold',
                     ':hover': {
                         backgroundColor: 'green',
                     },

@@ -40,14 +40,14 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
   // Validate the form
   const validateForm = (): boolean => {
     const newErrors: Partial<FormData> = {};
-    if (!formData.firstName) newErrors.firstName = 'First name is required';
-    if (!formData.lastName) newErrors.lastName = 'Last name is required';
+    if (!formData.firstName) newErrors.firstName = 'This field is required';
+    if (!formData.lastName) newErrors.lastName = 'This field is required';
     if (!formData.email) {
       newErrors.email = 'Email is required';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Invalid email address';
+      newErrors.email = 'Please enter a valid email address';
     }
-    if (!formData.message) newErrors.message = 'Message is required';
+    if (!formData.message) newErrors.message = 'This field is required';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
