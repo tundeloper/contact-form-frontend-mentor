@@ -1,5 +1,5 @@
 'use client'
-import { Box, Checkbox, FormControlLabel, FormGroup, Radio, Typography } from "@mui/material"
+import { Box, FormControlLabel, FormGroup, Radio, Typography } from "@mui/material"
 import { useState } from "react"
 
 const Query = () => {

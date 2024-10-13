@@ -12,7 +12,7 @@ const Form = () => {
   if (!formContext) throw new Error('FormContext must be used within a FormProvider');
   
 
-  const { formData, errors, validateForm, resetForm } = formContext;
+  const {validateForm, resetForm } = formContext;
 
   // Handle form submission
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

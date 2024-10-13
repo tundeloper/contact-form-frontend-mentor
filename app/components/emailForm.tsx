@@ -8,7 +8,7 @@ const EmailForm = () => {
 
     if (!formContext) throw new Error('FormContext must be used within a FormProvider');
 
-    const { formData, errors, handleInputChange, validateForm, resetForm } = formContext;
+    const { formData, errors, handleInputChange,} = formContext;
     return <div className="mb-2">
         <Box sx={{ flex: 1 }}>
         <div className='flex justify-between items-center font-1'>

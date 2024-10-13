@@ -1,7 +1,5 @@
 import React, { useContext } from 'react';
 import { Box, TextField, Typography } from '@mui/material';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
 import { FormContext } from '../context';
 
 const NameForm = () => {
@@ -9,7 +7,7 @@ const NameForm = () => {
 
     if (!formContext) throw new Error('FormContext must be used within a FormProvider');
 
-    const { formData, errors, handleInputChange, validateForm, resetForm } = formContext;
+    const { formData, errors, handleInputChange} = formContext;
 
   return <div className='mb-2 flex flex-col gap-2 sm:flex-row sm:gap-4'>
       <Box sx={{ flex: 1 }}>

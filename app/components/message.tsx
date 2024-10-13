@@ -7,7 +7,7 @@ const MessageForm = () => {
 
     if (!formContext) throw new Error('FormContext must be used within a FormProvider');
 
-    const { formData, errors, handleInputChange, validateForm, resetForm } = formContext;
+    const { formData, errors, handleInputChange} = formContext;
 
     return <div>
         <Box sx={{ flex: 1 }}>
