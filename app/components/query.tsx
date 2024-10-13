@@ -4,8 +4,8 @@ import { useState } from "react"
 
 const Query = () => {
     const [checked, setChecked] = useState({general: false, Support: false})
-    return <div>
-        <Typography>Query Type</Typography>
+    return <div className="mb-2">
+        <Typography>Query Type *</Typography>
         <div className='flex flex-col gap-4 sm:flex-row'>
         <Box sx={{ flex: 1, border: '.1px solid grey', borderRadius: '4px', paddingLeft: '.5rem'}}>
             <FormGroup>
