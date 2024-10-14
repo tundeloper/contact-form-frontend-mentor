@@ -11,10 +11,10 @@ const EmailForm = () => {
     const { formData, errors, handleInputChange } = formContext;
 
     return (
-        <div className="mb-2">
+        <div className="mb-4">
             <Box sx={{ flex: 1 }}>
-                <div className='flex justify-between items-center font-1'>
-                    <Typography style={{fontWeight: 'bold'}}>
+                <div className='flex justify-between items-center font-1 mb-2'>
+                    <Typography>
                         Email Address *
                     </Typography>
                     {/* {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>} */}

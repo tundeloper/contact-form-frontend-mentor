@@ -10,12 +10,12 @@ const NameForm = () => {
     const { formData, errors, handleInputChange } = formContext;
 
     return (
-        <div className='mb-2 flex flex-col gap-2 sm:flex-row sm:gap-4'>
+        <div className='mb-4 flex flex-col gap-4 sm:flex-row sm:gap-4'>
             <Box sx={{ flex: 1 }}>
-                <div className='flex justify-between items-center font-1'>
-                    <p style={{fontWeight: 'bolder'}}>
+                <div className='flex justify-between items-center font-1 mb-2'>
+                    <Typography>
                         First Name *
-                    </p>
+                    </Typography>
                 </div>
                 <TextField
                     variant="outlined"
@@ -45,9 +45,11 @@ const NameForm = () => {
             </Box>
 
             <Box sx={{ flex: 1 }}>
-                    <Typography style={{fontWeight: 'bolder'}}>
+              <div className='mb-2'>
+                    <Typography>
                         Last Name *
                     </Typography>
+              </div>
                 <TextField
                     variant="outlined"
                     fullWidth

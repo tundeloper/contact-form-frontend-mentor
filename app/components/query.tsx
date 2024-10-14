@@ -6,8 +6,10 @@ const Query = () => {
     const [checked, setChecked] = useState({ general: false, Support: false })
 
     return (
-        <div className="mb-2">
-            <Typography style={{fontWeight: 'bold'}}>Query Type *</Typography>
+        <div className="mb-4">
+            <div className="mb-2">
+            <Typography>Query Type *</Typography>
+            </div>
             <div className='flex flex-col gap-4 sm:flex-row'>
                 <Box sx={{ flex: 1, border: '.1px solid grey', borderRadius: '4px', paddingLeft: '.5rem',  background: checked.general? '#e2f1e7' : 'transparent'}}>
                     <FormGroup>
@@ -23,7 +25,7 @@ const Query = () => {
                         />
                     </FormGroup>
                 </Box>
-                <Box sx={{ flex: 1, border: '.1px solid grey', borderRadius: '4px', paddingLeft: '.5rem', background: checked.Support? '#e2f1e7' : 'transparent' }}>
+                <Box sx={{ flex: 1, border: '1px solid #717071c9', borderRadius: '4px', paddingLeft: '.5rem', background: checked.Support? '#e2f1e7' : 'transparent' }}>
                     <FormGroup>
                         <FormControlLabel
                             control={

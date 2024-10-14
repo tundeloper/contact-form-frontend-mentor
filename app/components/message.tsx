@@ -12,8 +12,8 @@ const MessageForm = () => {
     return (
         <div>
             <Box sx={{ flex: 1 }}>
-                <div className='flex justify-between items-center font-1'>
-                    <Typography style={{fontWeight: 'bold'}}>
+                <div className='flex justify-between items-center font-1 mb-2'>
+                    <Typography>
                         Message *
                     </Typography>
                 </div>

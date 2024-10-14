@@ -6,7 +6,7 @@ const Consent = () => {
     const [contact, setContact] = useState(false);
 
     return (
-        <div>
+        <div className="mt-4">
             <Box sx={{ flex: 1, paddingLeft: '.5rem', margin: '5px 0 5px 0' }}>
                 <FormGroup>
                     <FormControlLabel
@@ -29,6 +29,8 @@ const Consent = () => {
                     backgroundColor: 'darkgreen',
                     textTransform: 'capitalize',
                     fontWeight: 'bold',
+                    marginTop: '.5rem',
+                    marginBottom: '1rem',
                     ':hover': {
                         backgroundColor: 'green',
                     },
