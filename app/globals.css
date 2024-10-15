@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @font-face {
+@font-face {
   font-family: 'myFont';
-  src: url('../assets/Karla-Italic-VariableFont_wght.ttf') format('woff2'),
-       url('../assets/Karla-VariableFont_wght.ttf') format('woff');
-} */
+  src: url('./assets/Karla-Italic-VariableFont_wght.ttf') format('woff2'),
+       url('./assets/Karla-VariableFont_wght.ttf') format('woff');
+}
 
 :root {
   --background: #ffffff;
@@ -23,7 +23,7 @@
 body {
   color: #0a0a0a;
   background: #e2f1e7;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "myFont", Helvetica, sans-serif;
 }
 
 @layer utilities {

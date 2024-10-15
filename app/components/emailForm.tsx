@@ -3,8 +3,6 @@ import { Box, TextField, Typography } from "@mui/material";
 import { Control, Controller, FieldErrors} from "react-hook-form";
 import { FormData } from './form';
 
-
-
 const EmailForm: React.FC <{control: Control<FormData>, errors: FieldErrors<FormData>}> = ({control, errors}) => {
 
     return (
@@ -35,7 +33,7 @@ const EmailForm: React.FC <{control: Control<FormData>, errors: FieldErrors<Form
                     id="email"
                     // label="Email"
                     type="email"
-                    // required
+                    required
                     autoComplete="email"
                     aria-describedby="email-error"
                     error={!!errors.email}

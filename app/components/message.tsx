@@ -7,8 +7,8 @@ const MessageForm: React.FC <{control: Control<FormData>, errors: FieldErrors<Fo
     return (
         <div>
             <Box sx={{ flex: 1 }}>
-                <div className='flex justify-between items-center font-1 mb-2'>
-                    <Typography>
+                <div className='flex justify-between items-center font-1'>
+                    <Typography gutterBottom>
                         Message *
                     </Typography>
                 </div>

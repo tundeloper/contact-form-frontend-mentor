@@ -1,14 +1,15 @@
 'use client';
 import { Box, Button, Checkbox, FormControlLabel, FormGroup } from "@mui/material";
-import { useState } from "react";
+import React, { useState } from "react";
 
-const Consent = () => {
+const Consent: React.FC = () => {
     const [contact, setContact] = useState(false);
+    
 
     return (
         <div className="mt-4">
-            <Box sx={{ flex: 1, paddingLeft: '.5rem', margin: '5px 0 5px 0' }}>
-                <FormGroup>
+            {contact ? '<p>You must consent</p>' : ''}
+                <FormGroup sx={{ flex: 1, paddingLeft: '.5rem', margin: '5px 0 5px 0' }}>
                     <FormControlLabel
                         control={
                             <Checkbox
@@ -20,7 +21,6 @@ const Consent = () => {
                         label="I consent to being contacted by the team"
                     />
                 </FormGroup>
-            </Box>
             <Button
                 type="submit"
                 variant="contained"
