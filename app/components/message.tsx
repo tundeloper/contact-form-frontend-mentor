@@ -1,13 +1,8 @@
 import { Box, TextField, Typography } from "@mui/material";
-import { useContext } from "react";
-import { FormContext } from "../context";
+import { Control, Controller, FieldErrors } from "react-hook-form";
+import { FormData } from './form';
 
-const MessageForm = () => {
-    const formContext = useContext(FormContext);
-
-    if (!formContext) throw new Error('FormContext must be used within a FormProvider');
-
-    const { formData, errors, handleInputChange } = formContext;
+const MessageForm: React.FC <{control: Control<FormData>, errors: FieldErrors<FormData>}> = ({control, errors}) => {
 
     return (
         <div>
@@ -17,15 +12,24 @@ const MessageForm = () => {
                         Message *
                     </Typography>
                 </div>
-                <TextField
+                <Controller
+                name="message"
+                control={control}
+                defaultValue=""
+                rules={{ required: 'Message is required', minLength: { value: 10, message: 'Message must be at least 10 characters' } }} 
+                render={({ field }) => <Box>
+                  <TextField
+                    {...field}
                     variant="outlined"
+                    id="message"
                     fullWidth
                     multiline
                     minRows={2}
                     maxRows={4}
+                    required
                     name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
+                    error={!!errors.message}
+                    aria-describedby="message-error"
                     sx={{
                         '& .MuiOutlinedInput-root': {
                           '& fieldset': {
@@ -41,10 +45,15 @@ const MessageForm = () => {
                       }}
                     InputProps={{
                         'aria-label': 'message',
-                        sx: { height: '5rem',}, // Adjust the height directly (optional)
+                        sx: { height: '5rem',}, 
                     }}
                 />
-                {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
+                {/* {errors.message && <span id="message-error"
+                    role="alert"
+                    aria-live="assertive" 
+                    className="text-red-500 text-sm">{errors.message}</p>} */}
+                </Box>}/>
+                
             </Box>
         </div>
     );

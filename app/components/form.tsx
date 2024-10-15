@@ -1,35 +1,37 @@
-import { useContext } from "react";
 import Consent from "./consent";
 import EmailForm from "./emailForm";
 import MessageForm from "./message";
 import NameForm from "./nameForm";
 import Query from "./query";
-import { FormContext } from "../context";
+import { useForm } from "react-hook-form";
+import { Box } from "@mui/material";
+
+export interface FormData {
+    firstName: string;
+    lastName: string;
+    email: string;
+    message: string;
+    queryType: string;
+  }
 
 const Form = () => {
-    const formContext = useContext(FormContext);
 
-    if (!formContext) throw new Error('FormContext must be used within a FormProvider');
+    const { control, handleSubmit, formState: { errors } } = useForm<FormData>()
 
-    const { validateForm, resetForm } = formContext;
-
-    // Handle form submission
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        if (validateForm()) {
-            alert(JSON.stringify(formContext.formData, null, 2));
-            resetForm();
-        }
-    };
+      const onSubmit = (data: FormData) => {
+        console.log(data);
+        // handle form submission
+      };
+      
 
     return (
-        <form onSubmit={handleSubmit}>
-            <NameForm />
-            <EmailForm />
-            <Query />
-            <MessageForm />
-            <Consent />
-        </form>
+        <Box component='form' onSubmit={handleSubmit(onSubmit)}>
+            <NameForm control={control} errors={errors} />
+            <EmailForm control={control} errors={errors} />
+            <Query control={control} errors={errors} />
+            <MessageForm control={control} errors={errors}/>
+            <Consent/>
+        </Box>
     );
 };
 

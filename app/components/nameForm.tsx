@@ -1,25 +1,31 @@
-import React, { useContext } from 'react';
 import { Box, TextField, Typography } from '@mui/material';
-import { FormContext } from '../context';
+import { Control, Controller, FieldErrors} from 'react-hook-form';
+import { FormData } from './form';
 
-const NameForm = () => {
-    const formContext = useContext(FormContext);
-
-    if (!formContext) throw new Error('FormContext must be used within a FormProvider');
-
-    const { formData, errors, handleInputChange } = formContext;
+const NameForm: React.FC <{control: Control<FormData>, errors: FieldErrors<FormData>}> = ({control, errors}) => {
+  
 
     return (
         <div className='mb-4 flex flex-col gap-4 sm:flex-row sm:gap-4'>
             <Box sx={{ flex: 1 }}>
-                <div className='flex justify-between items-center font-1 mb-2'>
-                    <Typography>
-                        First Name *
-                    </Typography>
+                <div className='flex justify-between items-center font-1'>
+                    <Typography component="label" htmlFor='firstName' gutterBottom>First Name *</Typography>
                 </div>
-                <TextField
+                <Controller
+                name="firstName"
+                control={control}
+                defaultValue=''
+                rules={{ required: 'First Name is required',  minLength: { value: 3, message: 'First name is too short' } }}
+                render={({field}) => <Box>
+                  <TextField
+                    {...field}
                     variant="outlined"
                     fullWidth
+                    required
+                    // label="First Name"
+                    id='firstName'
+                    aria-describedby="firstName-error"
+                    error={!!errors.firstName}
                     sx={{
                         '& .MuiOutlinedInput-root': {
                           '& fieldset': {
@@ -38,21 +44,35 @@ const NameForm = () => {
                         sx: { height: '2.5rem', width: '100%', borderColor: errors.firstName ? 'red' : '#e2f1e7', }
                     }}
                     name="firstName"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
+                    // value={formData.firstName}
+                    // onChange={handleInputChange}
                 />
-                {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName}</p>}
+                {errors.firstName && <span id="firstName-error" role="alert" aria-live="assertive" className="text-red-500 text-sm">{errors.firstName.message}</span>}
+                </Box>} />
+                
             </Box>
 
             <Box sx={{ flex: 1 }}>
-              <div className='mb-2'>
-                    <Typography>
+              <div className='flex justify-between items-center font-1'>
+                    <Typography component='label' htmlFor='lastName' gutterBottom>
                         Last Name *
                     </Typography>
               </div>
-                <TextField
+              <Controller
+                name="lastName"
+                control={control}
+                defaultValue=''
+                rules={{ required: 'Last Name is required',  minLength: { value: 3, message: 'Last name is too short' } }}
+                render={({field}) => <Box>
+                  <TextField
+                    {...field}
                     variant="outlined"
                     fullWidth
+                    required
+                    // label="Last Name"
+                    id='lastName'
+                    error={!!errors.lastName}
+                    aria-describedby="lastName-error"
                     sx={{
                         '& .MuiOutlinedInput-root': {
                           '& fieldset': {
@@ -67,14 +87,13 @@ const NameForm = () => {
                         },
                       }}
                     InputProps={{
-                        'aria-label': 'last name',
-                        sx: { height: '2.5rem',}
+                        'aria-label': 'first name',
+                        sx: { height: '2.5rem', width: '100%', borderColor: errors.firstName ? 'red' : '#e2f1e7', }
                     }}
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleInputChange}
+                    name="firstName"
                 />
-                {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName}</p>}
+                {errors.lastName && <span id="firstName-error" role="alert" aria-live="assertive" className="text-red-500 text-sm">{errors.lastName.message}</span>}
+                </Box>} />
             </Box>
         </div>
     );

@@ -1,27 +1,44 @@
 'use client';
 import { Box, TextField, Typography } from "@mui/material";
-import { useContext } from "react";
-import { FormContext } from "../context";
+import { Control, Controller, FieldErrors} from "react-hook-form";
+import { FormData } from './form';
 
-const EmailForm = () => {
-    const formContext = useContext(FormContext);
 
-    if (!formContext) throw new Error('FormContext must be used within a FormProvider');
 
-    const { formData, errors, handleInputChange } = formContext;
+const EmailForm: React.FC <{control: Control<FormData>, errors: FieldErrors<FormData>}> = ({control, errors}) => {
 
     return (
         <div className="mb-4">
             <Box sx={{ flex: 1 }}>
-                <div className='flex justify-between items-center font-1 mb-2'>
-                    <Typography>
+                <div className='flex justify-between items-center font-1 '>
+                    <Typography component="label" htmlFor="email" gutterBottom>
                         Email Address *
                     </Typography>
-                    {/* {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>} */}
                 </div>
-                <TextField
+                <Controller
+                name="email"
+                control={control}
+                defaultValue=""
+                rules={{
+                  required: 'Email is required',
+                  pattern: {
+                    value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+                    message: 'Enter a valid email address',
+                  },
+                }}
+                render={({ field }) => <Box>
+                  <TextField
+                    {...field}
                     variant="outlined"
                     fullWidth
+                    name="email"
+                    id="email"
+                    // label="Email"
+                    type="email"
+                    // required
+                    autoComplete="email"
+                    aria-describedby="email-error"
+                    error={!!errors.email}
                     sx={{
                         '& .MuiOutlinedInput-root': {
                           '& fieldset': {
@@ -39,11 +56,16 @@ const EmailForm = () => {
                         'aria-label': 'email',
                         sx: { height: '2.5rem',}
                     }}
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
+                    // value={formData.email}
+                    // onChange={handleInputChange}
                 />
-                {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+                {errors.email && <span 
+                  id="email-error"
+                  role="alert"
+                  aria-live="assertive" 
+                  className="text-red-500 text-sm">{errors.email.message}</span >}
+              </Box>} />
+                
             </Box>
         </div>
     );
