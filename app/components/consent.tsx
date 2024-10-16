@@ -1,9 +1,8 @@
 'use client';
 import { Button, Checkbox, FormControlLabel, FormGroup } from "@mui/material";
-import React, { Dispatch, useState } from "react";
+import React, { Dispatch } from "react";
 
 const Consent: React.FC<{submit: boolean, contact: boolean, setContact: Dispatch<React.SetStateAction<boolean>>}> = ({submit, contact, setContact}) => {
-    // const [contact, setContact] = useState(false);
     
 
     return (
