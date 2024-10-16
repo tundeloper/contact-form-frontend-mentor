@@ -15,7 +15,7 @@ const NameForm: React.FC <{control: Control<FormData>, errors: FieldErrors<FormD
                 name="firstName"
                 control={control}
                 defaultValue=''
-                rules={{ required: 'First Name is required',  minLength: { value: 3, message: 'First name is too short' } }}
+                rules={{ required: 'This field is required',  minLength: { value: 3, message: 'First name is too short' } }}
                 render={({field}) => <Box>
                   <TextField
                     {...field}
@@ -62,7 +62,7 @@ const NameForm: React.FC <{control: Control<FormData>, errors: FieldErrors<FormD
                 name="lastName"
                 control={control}
                 defaultValue=''
-                rules={{ required: 'Last Name is required',  minLength: { value: 3, message: 'Last name is too short' } }}
+                rules={{ required: 'This field is required',  minLength: { value: 3, message: 'Last name is too short' } }}
                 render={({field}) => <Box>
                   <TextField
                     {...field}

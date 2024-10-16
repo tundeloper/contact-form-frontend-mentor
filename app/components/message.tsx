@@ -16,7 +16,7 @@ const MessageForm: React.FC <{control: Control<FormData>, errors: FieldErrors<Fo
                 name="message"
                 control={control}
                 defaultValue=""
-                rules={{ required: 'Message is required', minLength: { value: 10, message: 'Message must be at least 10 characters' } }} 
+                rules={{ required: 'This field is required', minLength: { value: 10, message: 'Message must be at least 10 characters' } }} 
                 render={({ field }) => <Box>
                   <TextField
                     {...field}

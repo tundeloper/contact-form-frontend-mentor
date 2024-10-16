@@ -18,7 +18,7 @@ const EmailForm: React.FC <{control: Control<FormData>, errors: FieldErrors<Form
                 control={control}
                 defaultValue=""
                 rules={{
-                  required: 'Email is required',
+                  required: 'This field is required',
                   pattern: {
                     value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
                     message: 'Enter a valid email address',
